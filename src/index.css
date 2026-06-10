@@ -1,0 +1,59 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+
+@layer base {
+  /* Theme CSS variables */
+  :root {
+    --brand-orange: #f97316;
+    --brand-slate: #0f172a;
+
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: rgba(148, 163, 184, 0.35);
+
+    --shadow-sm: 0 6px 18px rgba(2, 6, 23, 0.06);
+    --shadow-md: 0 16px 40px rgba(2, 6, 23, 0.12);
+  }
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-orange);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Small modern UI defaults */
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

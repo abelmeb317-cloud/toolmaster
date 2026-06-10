@@ -1,0 +1,26 @@
+:root {
+  --brand-orange: #f97316;
+  --brand-slate: #0f172a;
+
+  /* subtle neutrals */
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(148, 163, 184, 0.35);
+
+  /* shadows */
+  --shadow-sm: 0 6px 18px rgba(2, 6, 23, 0.06);
+  --shadow-md: 0 16px 40px rgba(2, 6, 23, 0.12);
+}
+
+/* Optional helpers for any non-tailwind components */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 3px;
+}
