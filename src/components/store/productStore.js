@@ -1,15 +1,31 @@
 import { create } from "zustand";
 import products from "../data/products";
+import api from "../../api/axios";
 
 const useProductStore = create((set, get) => ({
-  products,
+  products: products, // fallback initial products
   searchTerm: "",
   category: "all",
-
-  setSearchTerm: (value) => set({ searchTerm: value }),
-  setCategory: (value) => set({ category: value }),
-
   filteredProducts: [],
+
+  setSearchTerm: (value) => {
+    set({ searchTerm: value });
+    get().initDerived();
+  },
+  setCategory: (value) => {
+    set({ category: value });
+    get().initDerived();
+  },
+
+  fetchProducts: async () => {
+    try {
+      const res = await api.get("/products");
+      set({ products: res.data || [] });
+      get().initDerived();
+    } catch (err) {
+      console.error("Failed to fetch products:", err);
+    }
+  },
 
   initDerived: () => {
     const { products, searchTerm, category } = get();
@@ -26,20 +42,5 @@ const useProductStore = create((set, get) => ({
 
 // Initialize once on module load (client-side)
 useProductStore.getState().initDerived();
-
-// Recompute derived state whenever inputs change
-const originalSetSearchTerm = useProductStore.getState().setSearchTerm;
-const originalSetCategory = useProductStore.getState().setCategory;
-
-useProductStore.setState({
-  setSearchTerm: (value) => {
-    originalSetSearchTerm(value);
-    useProductStore.getState().initDerived();
-  },
-  setCategory: (value) => {
-    originalSetCategory(value);
-    useProductStore.getState().initDerived();
-  },
-});
 
 export default useProductStore;

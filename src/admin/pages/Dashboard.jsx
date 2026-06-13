@@ -54,7 +54,7 @@ export default function Dashboard() {
           products: prodTotal,
           users,
           orders,
-          revenue: `$${revenue}`,
+          revenue: `birr ${revenue}`,
         });
       })
       .catch(() => {

@@ -1,23 +1,14 @@
-<<<<<<< HEAD
-import { Link, NavLink } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import useCartStore from "../store/cartStore";
-import MobileMenu from "./MobileMenu";
-=======
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import useCartStore from "../store/cartStore";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
 import { authStore } from "../store/authStore";
->>>>>>> 82ba93c (Add GitHub Pages deployment)
 
 function Navbar() {
   const cartCount = useCartStore((state) =>
     state.cart.reduce((total, item) => total + (item.quantity ?? 0), 0),
   );
-<<<<<<< HEAD
-=======
   const [auth, setAuth] = useState(authStore.get());
   const navigate = useNavigate();
 
@@ -29,7 +20,6 @@ function Navbar() {
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
   }, []);
->>>>>>> 82ba93c (Add GitHub Pages deployment)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
@@ -81,8 +71,6 @@ function Navbar() {
             </span>
           </Link>
 
-<<<<<<< HEAD
-=======
           {/* Admin quick link */}
           {auth?.role === "ADMIN" && (
             <button
@@ -118,8 +106,6 @@ function Navbar() {
               Login
             </Link>
           )}
-
->>>>>>> 82ba93c (Add GitHub Pages deployment)
           <div className="md:hidden">
             <MobileMenu />
           </div>

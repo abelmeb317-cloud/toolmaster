@@ -46,7 +46,7 @@ function Orders() {
                 <td className="p-3">
                   {new Date(o.createdAt).toLocaleString()}
                 </td>
-                <td className="p-3">${o.total}</td>
+                <td className="p-3">birr {o.total}</td>
               </tr>
             ))}
           </tbody>

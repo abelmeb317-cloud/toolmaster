@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useCartStore from "../store/cartStore";
+import useProductStore from "../store/productStore";
+import { authStore } from "../store/authStore";
+import api from "../../api/axios";
 
 function Checkout() {
   const { cart, clearCart } = useCartStore();
@@ -22,10 +25,33 @@ function Checkout() {
     }
   }, [cart.length, navigate]);
 
-  const onSubmit = (data) => {
-    toast.success(`Order placed successfully, ${data.name}!`);
-    clearCart();
-    navigate("/", { replace: true });
+  const onSubmit = async (data) => {
+    const auth = authStore.get();
+    const orderData = {
+      items: cart.map(it => ({ id: it.id, name: it.name, price: it.price, quantity: it.quantity ?? 1 })),
+      total: cart.reduce((s, it) => s + it.price * (it.quantity ?? 1), 0),
+      username: auth?.username || data.name,
+      email: data.email,
+      address: data.address,
+      payment: data.payment
+    };
+
+    try {
+      await api.post("/orders", orderData);
+      toast.success(`Order placed successfully, ${data.name}!`);
+      
+      // Update local product stock
+      const fetchProducts = useProductStore.getState().fetchProducts;
+      if (typeof fetchProducts === "function") {
+        await fetchProducts();
+      }
+
+      clearCart();
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to place order. Please try again.");
+    }
   };
 
   return (

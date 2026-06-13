@@ -21,14 +21,15 @@ function Customers() {
   };
 
   const remove = async (id) => {
-    setConfirm({
-      title: "Delete user",
-      message: "Are you sure you want to delete this user?",
-      onConfirm: async () => {
-        await api.delete(`/admin/users/${id}`);
-        load();
-      },
-    });
+    const ok = window.confirm("Are you sure you want to delete this user?");
+    if (!ok) return;
+
+    try {
+      await api.delete(`/admin/users/${id}`);
+      load();
+    } catch (err) {
+      console.error("Failed to delete user:", err);
+    }
   };
 
   return (

@@ -259,7 +259,7 @@ function Products() {
                 <tr key={p.id} className="border-b">
                   <td className="p-3">{p.name}</td>
                   <td className="p-3">{p.category}</td>
-                  <td className="p-3">${p.price}</td>
+                  <td className="p-3">birr {p.price}</td>
                   <td className="p-3">{p.stock}</td>
                   <td className="p-3">
                     <div className="flex gap-2">

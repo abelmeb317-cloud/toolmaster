@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
 import { Link, useNavigate } from "react-router-dom";
->>>>>>> 82ba93c (Add GitHub Pages deployment)
 import { FaBoxOpen, FaTruck, FaWrench, FaShieldAlt } from "react-icons/fa";
 import products from "../data/products";
 import ProductCard from "../features/ProductCard";
 import BenefitCard from "../sections/BenefitCard";
 import PremiumSectionHeader from "../sections/PremiumSectionHeader";
 import TrustedCompaniesStrip from "../sections/TrustedCompaniesStrip";
-<<<<<<< HEAD
-=======
 import { authStore } from "../store/authStore";
->>>>>>> 82ba93c (Add GitHub Pages deployment)
 
 function Home() {
   const categories = Array.from(new Set(products.map((p) => p.category))).slice(
@@ -22,10 +15,7 @@ function Home() {
 
   const featured = products.slice(0, 3);
   const bestSellers = products.slice(1, 5);
-<<<<<<< HEAD
-=======
   const navigate = useNavigate();
->>>>>>> 82ba93c (Add GitHub Pages deployment)
 
   return (
     <div className="bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))]  from-orange-50 via-white to-slate-50 pb-16">
@@ -74,9 +64,6 @@ function Home() {
               >
                 Get a quote
               </Link>
-<<<<<<< HEAD
-=======
-
               {/* Admin dashboard quick access when signed in as admin */}
               {authStore.get()?.role === "ADMIN" && (
                 <button
@@ -86,7 +73,6 @@ function Home() {
                   Admin Dashboard
                 </button>
               )}
->>>>>>> 82ba93c (Add GitHub Pages deployment)
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -143,7 +129,7 @@ function Home() {
                     {product.description}
                   </p>
                   <p className="mt-3 text-lg font-bold text-slate-900">
-                    ${product.price.toFixed(2)}
+                    birr {product.price.toFixed(2)}
                   </p>
                 </div>
               </Link>

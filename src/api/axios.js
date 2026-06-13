@@ -31,7 +31,7 @@ axiosInstance.interceptors.response.use(
     if (error.response?.status === 401) {
       console.log("Unauthorized - logging out...");
       authStore.logout();
-      window.location.href = "/login";
+      window.location.href = "/business-redesign-AbelMeb/login";
     }
 
     return Promise.reject(error);

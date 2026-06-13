@@ -7,8 +7,6 @@ import Checkout from "../pages/Checkout";
 import Dashboard from "../pages/Dashboard";
 import Contact from "../pages/Contact";
 import Report from "../pages/Report";
-<<<<<<< HEAD
-=======
 import AdminLayout from "../../admin/layouts/AdminLayout";
 import AdminDashboard from "../../admin/pages/Dashboard";
 import AdminProducts from "../../admin/pages/Products";
@@ -20,15 +18,11 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 
 import ProtectedAdminRoute from "../ProtectedAdminRoute";
->>>>>>> 82ba93c (Add GitHub Pages deployment)
 
 function AppRoutes() {
   return (
     <Routes>
-<<<<<<< HEAD
-=======
       {/* Website */}
->>>>>>> 82ba93c (Add GitHub Pages deployment)
       <Route path="/" element={<Home />} />
       <Route path="/products/:id" element={<ProductDetails />} />
       <Route path="/products" element={<Products />} />
@@ -38,8 +32,6 @@ function AppRoutes() {
       <Route path="/report" element={<Report />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<Home />} />
-<<<<<<< HEAD
-=======
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       {/* Admin */}
@@ -58,7 +50,6 @@ function AppRoutes() {
         <Route path="inventory" element={<Inventory />} />
         <Route path="settings" element={<Settings />} />
       </Route>
->>>>>>> 82ba93c (Add GitHub Pages deployment)
     </Routes>
   );
 }
