@@ -38,7 +38,7 @@ export default defineConfig({
 
   // GitHub Pages subpath (must match BrowserRouter basename)
   // Note: do NOT include a trailing slash for Vite base.
-  base: "/business-redesign-AbelMeb",
+  base: "/toolmaster/",
 
   build: {
     assetsDir: "assets",
