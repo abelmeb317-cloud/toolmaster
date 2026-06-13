@@ -45,7 +45,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
 
   // GitHub Pages repository name
-  base: "/toolmaster-hardware/",
+  base: "/business-redesign-AbelMeb/",
 
   server: {
     port: 3000,
