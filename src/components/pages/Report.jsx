@@ -43,13 +43,13 @@ function Report() {
     doc.setFontSize(12);
 
     doc.text(`Total Products: ${report.totalProducts}`, 20, 40);
-    doc.text(`Total Value: $${report.totalValue.toFixed(0)}`, 20, 50);
-    doc.text(`Average Price: $${report.avgPrice.toFixed(0)}`, 20, 60);
+    doc.text(`Total Value: birr${report.totalValue.toFixed(0)}`, 20, 50);
+    doc.text(`Average Price: birr${report.avgPrice.toFixed(0)}`, 20, 60);
 
     doc.text(
       `Price Range: ${
-        report.lowest ? `$${report.lowest.price}` : "$0"
-      } - ${report.highest ? `$${report.highest.price}` : "$0"}`,
+        report.lowest ? `birr${report.lowest.price}` : "$0"
+      } - ${report.highest ? `birr${report.highest.price}` : "$0"}`,
       20,
       70,
     );
@@ -60,7 +60,7 @@ function Report() {
     y += 10;
 
     products.forEach((p) => {
-      doc.text(`${p.name} - $${Number(p.price || 0).toFixed(0)}`, 20, y);
+      doc.text(`${p.name} - birr${Number(p.price || 0).toFixed(0)}`, 20, y);
       y += 8;
     });
 

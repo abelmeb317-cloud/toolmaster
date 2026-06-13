@@ -20,14 +20,12 @@ function ProductDetails() {
         <p className="mt-3 text-slate-600">
           Please return to the product catalog.
         </p>
-        <div className="flex justify-end">
-          <Link
-            to="/products"
-            className="inline-flex items-center rounded-full bg-orange-500 px-6 py-3 text-white hover:bg-orange-600 hover:scale-105 transition-all duration-200"
-          >
-            Browse products
-          </Link>
-        </div>
+        <Link
+          to="/products"
+          className="mt-6 inline-flex rounded-full bg-orange-500 px-6 py-3 text-white"
+        >
+          Browse products
+        </Link>
       </div>
     );
   }
@@ -47,10 +45,10 @@ function ProductDetails() {
           <div className="rounded-3xl bg-white p-6 shadow-sm">
             <Link
               to="/products"
-              className="ml-70  inline-flex items-center px-7 font-semibold text-orange-800 hover:text-amber-500 transition  border-transparent hover:border-amber-500"
+              className="ml-70 inline-flex items-center px-7 font-semibold text-gray-900 hover:text-amber-500 transition  border-transparent hover:border-amber-500"
             >
               View Products
-              <ArrowRight size={30} />
+              <ArrowRight size={18} />
             </Link>
             <p className="text-sm uppercase tracking-[0.35em] text-orange-500">
               {product.category}
