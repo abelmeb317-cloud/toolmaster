@@ -1,12 +1,35 @@
+<<<<<<< HEAD
 import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import useCartStore from "../store/cartStore";
 import MobileMenu from "./MobileMenu";
+=======
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import useCartStore from "../store/cartStore";
+import MobileMenu from "./MobileMenu";
+import { useEffect, useState } from "react";
+import { authStore } from "../store/authStore";
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
 
 function Navbar() {
   const cartCount = useCartStore((state) =>
     state.cart.reduce((total, item) => total + (item.quantity ?? 0), 0),
   );
+<<<<<<< HEAD
+=======
+  const [auth, setAuth] = useState(authStore.get());
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    function onStorage() {
+      setAuth(authStore.get());
+    }
+
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
@@ -58,6 +81,45 @@ function Navbar() {
             </span>
           </Link>
 
+<<<<<<< HEAD
+=======
+          {/* Admin quick link */}
+          {auth?.role === "ADMIN" && (
+            <button
+              onClick={() => navigate("/admin")}
+              className="hidden md:inline-flex items-center gap-2 rounded-full border border-orange-500 bg-white px-4 py-2 text-sm font-semibold text-orange-600 shadow-sm transition hover:bg-orange-50"
+            >
+              Admin
+            </button>
+          )}
+
+          {/* Login / Logout + username */}
+          {auth?.token ? (
+            <div className="hidden md:flex items-center gap-3">
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-sm font-medium text-slate-800">
+                {auth?.username}
+              </span>
+              <button
+                onClick={() => {
+                  authStore.logout();
+                  setAuth(null);
+                  navigate("/");
+                }}
+                className="inline-flex items-center gap-2 rounded-full bg-red-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-600"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden md:inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-orange-300 hover:text-orange-600"
+            >
+              Login
+            </Link>
+          )}
+
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
           <div className="md:hidden">
             <MobileMenu />
           </div>

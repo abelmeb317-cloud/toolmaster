@@ -12,6 +12,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "axios": "^1.17.0",
+<<<<<<< HEAD
+=======
+    "jsonwebtoken": "^9.0.3",
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
     "jspdf": "^4.2.1",
     "lucide-react": "^1.17.0",
     "react": "^19.2.6",

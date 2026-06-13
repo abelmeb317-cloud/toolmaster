@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1781276795705,
+    "username": "alice",
+    "passwordHash": "$2b$10$mlLhY6Dgf647e9Td45iZceO1SNeiEDNotLb5C.vQNcy3c24MA4oBO",
+    "role": "USER"
+  },
+  {
+    "id": 1781276981440,
+    "username": "feweea",
+    "passwordHash": "$2b$10$DnWEv0G9iJ8deZ6QUBVU/eIUDXAhp263CTfj3gDOCVGzk/YLpLcYy",
+    "role": "USER"
+  },
+  {
+    "id": 1781277335102,
+    "username": "feweeaw",
+    "passwordHash": "$2b$10$mgi6TghqgmHbktAci0DOm.Z31JJiHghSVotcFhsqv1pRvZlIVSAt2",
+    "role": "USER"
+  },
+  {
+    "id": 1,
+    "username": "admin123",
+    "passwordHash": "$2b$10$8zLBt.nXXV1uJ9M25qDkY.7FsvzsosymZDXrw45KYv5m9L5PsRDeu",
+    "role": "ADMIN"
+  },
+  {
+    "id": 1781277992167,
+    "username": "adddd",
+    "passwordHash": "$2b$10$PH6sOxPnKxDsa/ub9IS7UOkY3rDtXnVugNBTMJqkIAW616gvqT182",
+    "role": "USER"
+  },
+  {
+    "id": 1781334649222,
+    "username": "abve",
+    "passwordHash": "$2b$10$xsRuQXAoNrpiS5i.TLySduSLVwixZyQmIQX3OyzybfcaHHHe6Dq5a",
+    "role": "USER"
+  }
+]

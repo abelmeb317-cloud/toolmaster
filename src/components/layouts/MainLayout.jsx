@@ -1,7 +1,20 @@
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
+<<<<<<< HEAD
 
 function MainLayout({ children }) {
+=======
+import { useLocation } from "react-router-dom";
+
+function MainLayout({ children }) {
+  const { pathname } = useLocation();
+
+  // Hide navbar/footer on auth pages
+  const isAuthPage = pathname === "/login" || pathname === "/signup";
+  // Hide footer on admin pages
+  const isAdminPage = pathname.startsWith("/admin");
+
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <a
@@ -11,11 +24,21 @@ function MainLayout({ children }) {
         Skip to content
       </a>
 
+<<<<<<< HEAD
       <Navbar />
       <main id="main-content" className="pt-24">
         {children}
       </main>
       <Footer />
+=======
+      {!isAuthPage && <Navbar />}
+
+      <main id="main-content" className={isAuthPage ? "py-12" : "pt-24"}>
+        {children}
+      </main>
+
+      {!isAuthPage && !isAdminPage && <Footer />}
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
     </div>
   );
 }

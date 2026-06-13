@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Cordless Drill",
+    "category": "Power Tools",
+    "price": 120,
+    "stock": 25,
+    "image": "/images/drill.jpg",
+    "description": "Compact cordless drill"
+  }
+]

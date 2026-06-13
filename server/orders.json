@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "items": [
+      { "productId": 1, "name": "Cordless Drill", "price": 120, "quantity": 2 },
+      { "productId": 2, "name": "Hammer", "price": 30, "quantity": 1 }
+    ],
+    "total": 270,
+    "createdAt": "2026-06-10T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "items": [
+      { "productId": 1, "name": "Cordless Drill", "price": 120, "quantity": 1 }
+    ],
+    "total": 120,
+    "createdAt": "2026-06-11T12:30:00Z"
+  }
+]

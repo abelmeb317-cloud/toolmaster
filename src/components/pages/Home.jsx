@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { Link, useNavigate } from "react-router-dom";
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
 import { FaBoxOpen, FaTruck, FaWrench, FaShieldAlt } from "react-icons/fa";
 import products from "../data/products";
 import ProductCard from "../features/ProductCard";
 import BenefitCard from "../sections/BenefitCard";
 import PremiumSectionHeader from "../sections/PremiumSectionHeader";
 import TrustedCompaniesStrip from "../sections/TrustedCompaniesStrip";
+<<<<<<< HEAD
+=======
+import { authStore } from "../store/authStore";
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
 
 function Home() {
   const categories = Array.from(new Set(products.map((p) => p.category))).slice(
@@ -14,6 +22,10 @@ function Home() {
 
   const featured = products.slice(0, 3);
   const bestSellers = products.slice(1, 5);
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate();
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
 
   return (
     <div className="bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))]  from-orange-50 via-white to-slate-50 pb-16">
@@ -62,6 +74,19 @@ function Home() {
               >
                 Get a quote
               </Link>
+<<<<<<< HEAD
+=======
+
+              {/* Admin dashboard quick access when signed in as admin */}
+              {authStore.get()?.role === "ADMIN" && (
+                <button
+                  onClick={() => navigate("/admin")}
+                  className="inline-flex items-center justify-center rounded-full border border-orange-500 bg-white px-7 py-3 text-sm font-semibold text-orange-600 transition hover:bg-orange-50"
+                >
+                  Admin Dashboard
+                </button>
+              )}
+>>>>>>> 82ba93c (Add GitHub Pages deployment)
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
