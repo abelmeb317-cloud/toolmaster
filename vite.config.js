@@ -15,6 +15,7 @@ import path from "path";
 import jwt from "jsonwebtoken";
 
 const USERS_FILE = path.join(process.cwd(), "server", "users.json");
+// Vite executes this in Node; keep process access via globalThis to satisfy strict linters
 const JWT_SECRET = globalThis.process?.env?.JWT_SECRET || "secret_key";
 
 function readJSON(filePath, fallback) {
@@ -44,8 +45,16 @@ function verifyHash(plain, stored) {
 export default defineConfig({
   plugins: [react(), tailwindcss()],
 
-  // GitHub Pages repository name
-  base: "/business-redesign-AbelMeb/",
+  // GitHub Pages subpath (must match BrowserRouter basename)
+  // Note: do NOT include a trailing slash for Vite base.
+  base: "/business-redesign-AbelMeb",
+
+
+  build: {
+    assetsDir: "assets",
+    sourcemap: false,
+    emptyOutDir: true,
+  },
 
   server: {
     port: 3000,
@@ -114,11 +123,7 @@ export default defineConfig({
               if (users.find((u) => u.username === username)) {
                 res.statusCode = 409;
                 res.setHeader("Content-Type", "application/json");
-                res.end(
-                  JSON.stringify({
-                    message: "username already exists",
-                  }),
-                );
+                res.end(JSON.stringify({ message: "username already exists" }));
                 return;
               }
 
@@ -169,9 +174,7 @@ export default defineConfig({
                 res.statusCode = 400;
                 res.setHeader("Content-Type", "application/json");
                 res.end(
-                  JSON.stringify({
-                    message: "username and password required",
-                  }),
+                  JSON.stringify({ message: "username and password required" }),
                 );
                 return;
               }
@@ -182,11 +185,7 @@ export default defineConfig({
               if (!user || !verifyHash(password, user.passwordHash)) {
                 res.statusCode = 401;
                 res.setHeader("Content-Type", "application/json");
-                res.end(
-                  JSON.stringify({
-                    message: "Invalid credentials",
-                  }),
-                );
+                res.end(JSON.stringify({ message: "Invalid credentials" }));
                 return;
               }
 
@@ -225,4 +224,8 @@ export default defineConfig({
     },
   },
 });
+<<<<<<< HEAD
 >>>>>>> 82ba93c (Add GitHub Pages deployment)
+=======
+
+>>>>>>> 5e12bd9 (deploy build)
